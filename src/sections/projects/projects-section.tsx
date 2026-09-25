@@ -1,16 +1,21 @@
 import styled from "styled-components";
+import ProjectsMenu from "./projects-menu/projects-menu";
 
-const Test = styled.div`
+const SectionContainer = styled.div`
   width: 100%;
   height: 100vh;
-  overflow: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: ${props => props.theme.colors.fg};
+  background-color: ${props => props.theme.colors.bg};
 `;
 
 const ProjectsSection = () => {
   return (
-    <Test>
-      projects
-    </Test>
+    <SectionContainer>
+      <ProjectsMenu />
+    </SectionContainer>
   );
 };
 

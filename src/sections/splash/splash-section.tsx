@@ -1,16 +1,12 @@
-import { useState } from "react";
 import styled from "styled-components";
-import { getWindowDimensions } from "../../utils/get-window-dimensions";
-import Star from "./star/star";
+import StarBackground from "./star-background/star-background";
 
 const SectionContainer = styled.div`
   width: 100%;
-  height: 100vh;
+  height: calc(100vh - ${props => props.theme.heights.navbarHeight});
   display: flex;
   position: relative;
-  background-color: #1E1E1E;
-    overflow: auto;
-
+  background-color: ${props => props.theme.colors.bg};
 `;
 
 const StarContainer = styled.div`
@@ -63,6 +59,10 @@ const FadeInText = styled.p<{
       opacity: 1;
     }
   }
+
+  @media screen and (min-width: 1700px) {
+    font-size: ${props => props.theme.fontSizes.xl};
+  }
 `;
 
 const PageTransitionContainer = styled.div`
@@ -79,33 +79,11 @@ const PageTransitionContainer = styled.div`
 `;
 
 const SplashSection = () => {
-  const [windowDimensions, setWindowDimensions] = useState(getWindowDimensions());
-
-
-  const generateStars = (): Array<React.ReactNode> => {
-    const numStars = 40;
-    const res: Array<React.ReactNode> = [];
-    const { width, height } = windowDimensions;
-    console.log(`Screen Size: ${width},${height}`);
-
-    for (let i = 0; i < numStars; i++) {
-      let ranX = Math.floor(Math.random() * 99);
-      let ranY = Math.floor(Math.random() * 99);
-      console.log(`Generated: ${ranX}, ${ranY}`);
-      res.push(
-        <Star 
-          top={ranY}
-          right={ranX}
-        />
-      );
-    }
-
-    return res;
-  };
 
   return (
     <SectionContainer>
-      <StarContainer>
+      <StarBackground />
+      {/* <StarContainer>
         {generateStars()}
       </StarContainer>
         <MainContentContainer>
@@ -118,7 +96,7 @@ const SplashSection = () => {
             <FadeInText $duration={0.5} $textSize={1}>Learn More About Me</FadeInText>
             <FadeInText $duration={0.5} $textSize={1}>V</FadeInText>
           </PageTransitionContainer>
-        </MainContentContainer>
+        </MainContentContainer> */}
     </SectionContainer>
   );
 };

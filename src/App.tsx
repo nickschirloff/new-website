@@ -1,8 +1,10 @@
-import styled from 'styled-components';
+import styled, { ThemeProvider } from 'styled-components';
 import './index.css';
 import ProjectsSection from './sections/projects/projects-section';
 import SplashSection from './sections/splash/splash-section';
 import IntroSection from './sections/intro/intro-section';
+import { theme } from './theme';
+import Navbar from './components/navbar/navbar';
 
 const AppContainer = styled.div`
   width: 100vw;
@@ -14,11 +16,14 @@ const AppContainer = styled.div`
 function App() {
 
   return (
-    <AppContainer>
-      <SplashSection />
-      <IntroSection />
-      <ProjectsSection />
-    </AppContainer>
+    <ThemeProvider theme={theme}>
+      <AppContainer>
+        <Navbar />
+        <SplashSection />
+        <IntroSection />
+        <ProjectsSection />
+      </AppContainer>
+    </ThemeProvider>
   );
 }
 
