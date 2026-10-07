@@ -11,6 +11,12 @@ export const theme = {
     xl: "32px",
     xxl: "64px",
   },
+  spacing: {
+    med: "8px",
+    lg: "16px",
+    xl: "32px",
+    xxl: "64px",
+  },
   borderRadius: {
     sm: "4px",
     md: "8px",

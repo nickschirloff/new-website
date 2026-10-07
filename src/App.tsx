@@ -1,16 +1,14 @@
-import styled, { ThemeProvider } from 'styled-components';
 import './index.css';
-import ProjectsSection from './sections/projects/projects-section';
-import SplashSection from './sections/splash/splash-section';
-import IntroSection from './sections/intro/intro-section';
+import styled, { ThemeProvider } from 'styled-components';
 import { theme } from './theme';
-import Navbar from './components/navbar/navbar';
+import StarBackground from './components/star-background/star-background';
+import PageContent from './components/page-content/page-content';
 
 const AppContainer = styled.div`
   width: 100vw;
   height: 100vh;
-  overflow-x: auto;
-  overflow-y: auto;
+  position: relative;
+  overflow: auto;
 `;
 
 function App() {
@@ -18,10 +16,8 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <AppContainer>
-        <Navbar />
-        <SplashSection />
-        <IntroSection />
-        <ProjectsSection />
+        <StarBackground />
+        <PageContent />
       </AppContainer>
     </ThemeProvider>
   );
